@@ -41,47 +41,31 @@ while [[ "$#" -gt 0 ]]; do
     shift
 done
 
-pushd () {
-    command pushd "$@" > /dev/null
-}
-
-popd () {
-    command popd "$@" > /dev/null
-}
-
 if [[ $fetch -eq 1 ]]; then
     git pull origin master
 fi
 
 sync () {
-    # If there's a existing file backup it
-
     if [[ -f $2 ]]; then
 	case $remove in
 	    0) mv $2 $2.dot.bak ;;
 	    1) rm $2 ;;
 	esac
+    else
+	touch $2
     fi
 
-    # Make a symbolic link between the repo file 
-    # and the target one
-
-    echo "ln -s $(readlink -f $1) $2"
-    # ln -vs $(readlink -f $1) $2
+    ln -rvs $1 $2
 }
-
-pushd config
-
-for file in $(find -type f); do
+    
+for file in $(find config -type f); do
     name=$(basename -- $file)
-    dir=${file:2}
+    dir=${file:7}
 
-    target="~/$dir"
+    target=~/$dir
 
-    echo "$file -> $target"
+    sync $file $target
 done
-
-popd 
 
 exit 0
 
