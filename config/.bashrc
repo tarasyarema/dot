@@ -44,7 +44,7 @@ if [[ -f ~/.prompt ]]; then
     source ~/.prompt
     PS1+="\[\$(git_color)\]"
     PS1+="\$(git_branch)"  
-    PS1+="\[$COLOR_BLUE\]\[$COLOR_RESET\] "
+    PS1+="\[$COLOR_RESET\] "
 fi
 
 export PS1
