@@ -1,1 +1,10 @@
-/home/taras/dot/config/.config/nvim/coc-list
+coc-vimlsp
+coc-json
+coc-eslint
+coc-go
+coc-tsserver
+coc-python
+coc-phpls
+coc-html
+coc-pairs
+coc-rust-analyzer

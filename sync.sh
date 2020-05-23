@@ -57,8 +57,6 @@ sync () {
     # If there's a existing file backup it
 
     if [[ -f $2 ]]; then
-	echo $2
-
 	case $remove in
 	    0) mv $2 $2.dot.bak ;;
 	    1) rm $2 ;;
@@ -72,18 +70,18 @@ sync () {
     # ln -vs $(readlink -f $1) $2
 }
 
-# pushd config
+pushd config
 
-for file in $(find config -type f); do
+for file in $(find -type f); do
     name=$(basename -- $file)
-    dir=${file#config/}
+    dir=${file:2}
 
-    target=$(readlink -f ~/$dir)
+    target="~/$dir"
 
-    sync $file $target
+    echo "$file -> $target"
 done
 
-# popd 
+popd 
 
 exit 0
 
