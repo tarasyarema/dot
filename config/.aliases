@@ -1,0 +1,100 @@
+# Personal
+alias g11='g++ -g -std=c++11'
+alias g14='g++ -g -std=c++14'
+alias jn='jupyter notebook'
+alias myip='curl http://ipecho.net/plain; echo'
+alias eact='. ./env/bin/activate'
+
+# Shortcuts
+alias aliases='$EDITOR ~/.aliases'
+alias bashrc='$EDITOR ~/.bashrc'
+alias i3rc='$EDITOR ~/.config/i3/config'
+
+# Sourcing
+alias sbashrc='source ~/.bashrc'
+alias saliases='source ~/.aliases'
+alias svimrc='source ~/.vimrc' 
+
+# Listings
+alias l='ls -hHtl'
+alias ll='ls -hHAtl'
+alias lll='ls -lhFA | less'
+
+# Dir move
+alias ..='cd ..'
+alias desktop='cd ~/Desktop'
+alias bin='cd ~/bin'
+alias downloads='cd ~/Downloads'
+
+# System
+alias top='htop'
+alias time='/usr/bin/time -p'
+alias clip='xclip -selection c'
+alias pc='pwd | clip'
+alias speedtest='speedtest --simple'
+
+# Git
+alias clone='git clone'
+alias pull='git pull'
+alias add='git add .'
+alias commit='git commit -m'
+alias fetch='git fetch'
+alias push='git push origin master'
+alias status='git status'
+alias log='git log | less'
+alias checkout='git checkout'
+
+# Files
+alias rm='rm -r'
+
+# Functions
+
+f () {
+	dir=$(find . -type d | fzf)
+	cd $dir	
+}
+
+zf () {
+	dir=$(z | awk '/(.)(\s+)(.*)/{print $2}' | fzf)
+	cd $dir	
+}
+
+ff () {
+	file=$(grep -rnwi $1 * | fzf)
+	$EDITOR $file	
+}
+
+mkd () {
+    mkdir -p $1
+    cd $1
+}
+
+expose () {
+    ssh -R 80:localhost:$1 serveo.net
+}
+
+open () {
+    nohup xdg-open $1 &>/dev/null & 
+}
+
+extract () {
+   if [ -f $1 ] ; then
+       case $1 in
+	*.tar.bz2)	tar xvjf $1 && cd $(basename "$1" .tar.bz2) ;;
+	*.tar.gz)	tar xvzf $1 && cd $(basename "$1" .tar.gz) ;;
+	*.tar.xz)	tar Jxvf $1 && cd $(basename "$1" .tar.xz) ;;
+	*.bz2)		bunzip2 $1 && cd $(basename "$1" /bz2) ;;
+	*.rar)		unrar x $1 && cd $(basename "$1" .rar) ;;
+	*.gz)		gunzip $1 && cd $(basename "$1" .gz) ;;
+	*.tar)		tar xvf $1 && cd $(basename "$1" .tar) ;;
+	*.tbz2)		tar xvjf $1 && cd $(basename "$1" .tbz2) ;;
+	*.tgz)		tar xvzf $1 && cd $(basename "$1" .tgz) ;;
+	*.zip)		unzip $1 && cd $(basename "$1" .zip) ;;
+	*.Z)		uncompress $1 && cd $(basename "$1" .Z) ;;
+	*.7z)		7z x $1 && cd $(basename "$1" .7z) ;;
+	*)		echo "don't know how to extract '$1'..." ;;
+       esac
+   else
+       echo "'$1' is not a valid file!"
+   fi
+}
