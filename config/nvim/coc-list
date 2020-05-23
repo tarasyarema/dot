@@ -6,3 +6,5 @@ coc-tsserver
 coc-python
 coc-phpls
 coc-html
+coc-pairs
+coc-rust-analyzer
