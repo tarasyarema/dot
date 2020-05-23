@@ -6,9 +6,9 @@ NAME
     sync.sh - Syncs your dot files :3
 
 SYNOPSIS
-    program-name.sh [-h|--help]
-    program-name.sh [-r|--remove]
-		    [-f|--fetch]
+    sync.sh [-h|--help]
+    sync.sh [-r|--remove]
+	    [-f|--fetch]
 
 OPTIONS
     -h, --help
