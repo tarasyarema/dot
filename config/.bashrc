@@ -21,18 +21,30 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# Path related
 
 export PATH="$HOME/.serverless/bin:$PATH"
 
+# Misc
+
 export GOPATH=~/go
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Personal
 
 export EDITOR=/usr/bin/nvim
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 
-parse_git() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
+PS1="[\[$(tput sgr0)\]\[\033[38;5;10m\]\t\[$(tput sgr0)\]] \[$(tput sgr0)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
-PS1="[\[[m\]\[\033[38;5;10m\]\T\[[m\]] \[[m\]\[[1m\]\[\033[38;5;45m\]\W\[[m\] \[[m\]\$(parse_git) "
+if [[ -f ~/.prompt ]]; then
+    source ~/.prompt
+    PS1+="\[\$(git_color)\]"
+    PS1+="\$(git_branch)"  
+    PS1+="\[$COLOR_BLUE\]\[$COLOR_RESET\] "
+fi
+
+export PS1
