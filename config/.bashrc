@@ -35,6 +35,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 export EDITOR=/usr/bin/nvim
 
+[ -f ~/z/z.sh ] && source ~/z/z.sh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 
