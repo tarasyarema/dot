@@ -42,11 +42,11 @@ export EDITOR=/usr/bin/nvim
 
 PS1="[\[$(tput sgr0)\]\[\033[38;5;10m\]\t\[$(tput sgr0)\]] \[$(tput sgr0)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
-if [[ -f ~/.prompt ]]; then
-    source ~/.prompt
-    PS1+="\[\$(git_color)\]"
-    PS1+="\$(git_branch)"  
-    PS1+="\[$COLOR_RESET\] "
-fi
+#if [[ -f ~/.prompt ]]; then
+#    source ~/.prompt
+#    PS1+="\[\$(git_color)\]"
+#    PS1+="\$(git_branch)"  
+#    PS1+="\[$COLOR_RESET\] "
+#fi
 
 export PS1
