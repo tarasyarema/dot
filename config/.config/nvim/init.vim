@@ -14,6 +14,7 @@ Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile', 'branch': 'master'}
 Plug 'tpope/vim-fugitive'
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
