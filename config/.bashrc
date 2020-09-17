@@ -37,7 +37,6 @@ export EDITOR=/usr/bin/nvim
 
 [ -f ~/z/z.sh ] && source ~/z/z.sh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 [ -f ~/.aliases ] && source ~/.aliases
