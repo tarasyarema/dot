@@ -40,6 +40,8 @@ export EDITOR=/usr/bin/nvim
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 
+[ -f ~/.custom ] && source ~/.custom
+
 PS1="[\[$(tput sgr0)\]\[\033[38;5;10m\]\t\[$(tput sgr0)\]] \[$(tput sgr0)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 #if [[ -f ~/.prompt ]]; then
