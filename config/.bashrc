@@ -38,6 +38,8 @@ export EDITOR=/usr/bin/nvim
 [ -f ~/z/z.sh ] && source ~/z/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 [ -f ~/.aliases ] && source ~/.aliases
 
 [ -f ~/.custom ] && source ~/.custom
@@ -54,3 +56,4 @@ PS1="[\[$(tput sgr0)\]\[\033[38;5;10m\]\t\[$(tput sgr0)\]] \[$(tput sgr0)\]\[\03
 
 export PS1
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
