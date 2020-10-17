@@ -40,6 +40,9 @@ export EDITOR=/usr/bin/nvim
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.profile ] && source ~/.profile
 
+[ -f ~/.custom ] && source ~/.custom
+[ -f ~/.cargo/bin ] && source ~/.cargo/bin
+
 PS1="[\[$(tput sgr0)\]\[\033[38;5;10m\]\t\[$(tput sgr0)\]] \[$(tput sgr0)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
 if [[ -f ~/.prompt ]]; then
@@ -50,3 +53,5 @@ if [[ -f ~/.prompt ]]; then
 fi
 
 export PS1
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
