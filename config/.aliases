@@ -6,6 +6,7 @@ alias myip='curl http://ipecho.net/plain; echo'
 alias eact='. ./env/bin/activate'
 alias ssh='TERM=xterm-256color ssh'
 alias v='nvim'
+alias tmux='tmux -2'
 
 # Shortcuts
 alias aliases='$EDITOR ~/.aliases'
