@@ -38,6 +38,7 @@ export EDITOR=/usr/bin/nvim
 [ -f ~/z/z.sh ] && source ~/z/z.sh
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f ~/.aliases ] && source ~/.aliases
+[ -f ~/.profile ] && source ~/.profile
 
 PS1="[\[$(tput sgr0)\]\[\033[38;5;10m\]\t\[$(tput sgr0)\]] \[$(tput sgr0)\]\[\033[38;5;14m\]\W\[$(tput sgr0)\] \[$(tput sgr0)\]"
 
